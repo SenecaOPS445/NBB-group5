@@ -22,3 +22,10 @@ def data_backup(source_dir, backup_dir, archive_name):
     
     print(f"Backup created at: {archive_path}") # Tells user that backup is completed sucessfully.
     return archive_path 
+
+
+
+def data_restore(archive_path, restore_dir):
+    '''This function restore the data from the provided filepath into it's original format and save it into the provided filepath location.'''
+    
+    os.makedirs(restore_dir, exist_ok=True) # Checks if the restoration directory exists and if it doesn't exist it creates a new directory.
