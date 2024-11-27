@@ -29,3 +29,10 @@ def data_restore(archive_path, restore_dir):
     '''This function restore the data from the provided filepath into it's original format and save it into the provided filepath location.'''
     
     os.makedirs(restore_dir, exist_ok=True) # Checks if the restoration directory exists and if it doesn't exist it creates a new directory.
+
+
+    with tarfile.open(archive_path, "r:gz") as tar: # Extracts the compressed data into it original fromat in the specified location.
+        tar.extractall(path=restore_dir)
+
+        print(f"Data restored to: {restore_dir}") # Tells the user that data has been restored sucessfully.
+        return restore_dir 
