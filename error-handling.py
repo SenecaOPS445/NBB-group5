@@ -1,15 +1,24 @@
-def handle_error(exception, message="An error occurred"):
+# Error-handling function
+def handle_error(function, *args):
     '''
-    This function handles errors by logging the details to a file
-    and showing a simple message to the user.
+    Executes the given function and handles any errors that occur.
 
     Parameters:
-    - exception: The error that was caught.
-    - message: A short message explaining the error.
+    - function: The function to execute.
+    - *args: Arguments to pass to the function.
+
+    Returns:
+    - The result of the function if successful.
+    - None if an error occurs.
     '''
-    log_file = "error_log.txt"  # Name of the error log file
-    with open(log_file, "a") as file:  # Open the log file in append mode
-        file.write(f"{message}\n")
-        file.write(f"Error Details: {exception}\n")
-        file.write("------\n")
-    print(f"{message}. Check '{log_file}' for more details.")  # Notify the user
+    try:
+        return function(*args)  # Attempt to execute the provided function
+    except FileNotFoundError as e:
+        log_error(e, "File or directory not found")  # Handle file not found errors
+    except PermissionError as e:
+        log_error(e, "Permission denied")  # Handle permission errors
+    except tarfile.ReadError as e:
+        log_error(e, "Error reading tar.gz file")  # Handle issues with the archive file
+    except Exception as e:
+        log_error(e, "An unexpected error occurred")  # Handle other unexpected errors
+
