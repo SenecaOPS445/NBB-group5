@@ -10,3 +10,6 @@ Error details: [Errno 2] No such file or directory: '/home/ashaikh38/backup/back
 File or directory not found
 Error details: [Errno 2] No such file or directory: '/home/ashaikh38/backup/backup.tar.gz'
 ------
+File or directory not found
+Error details: [Errno 2] No such file or directory: '/home/ashaikh38/backup/backup.tar.gz'
+------

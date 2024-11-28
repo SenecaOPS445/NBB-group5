@@ -46,18 +46,18 @@ def handle_error(function, *args):
     - None if an error occurs.
     '''
     try:
-        return function(*args)  # Attempt to execute the provided function
+        return function(*args)  
     except FileNotFoundError as e:
-        log_error(e, "File or directory not found")  # Handle file not found errors
+        log_error(e, "File or directory not found") 
     except PermissionError as e:
-        log_error(e, "Permission denied")  # Handle permission errors
+        log_error(e, "Permission denied") 
     except tarfile.ReadError as e:
-        log_error(e, "Error reading tar.gz file")  # Handle issues with the archive file
+        log_error(e, "Error reading tar.gz file")
     except Exception as e:
-        log_error(e, "An unexpected error occurred")  # Handle other unexpected errors
+        log_error(e, "An unexpected error occurred")
 
 
-# Function to log errors
+
 def log_error(exception, message):
     '''
     Logs the error details to a file and informs the user.
@@ -66,22 +66,21 @@ def log_error(exception, message):
     - exception: The error that occurred.
     - message: A user-friendly description of the error.
     '''
-    log_file = "error_log.txt"  # Log file to store error details
-    with open(log_file, "a") as log:  # Open the log file in append mode
-        log.write(f"{message}\n")  # Log a user-friendly message
-        log.write(f"Error details: {exception}\n")  # Log technical details
+    log_file = "error_log.txt"
+    with open(log_file, "a") as log:
+        log.write(f"{message}\n")
+        log.write(f"Error details: {exception}\n")
         log.write("------\n")
-    print(f"{message}. Check '{log_file}' for more details.")  # Notify the user about the log
+    print(f"{message}. Check '{log_file}' for more details.")
 
 
-# Main block for testing the functionality
+
 if __name__ == "__main__":
-    # Paths for testing (replace these with actual paths during testing)
-    source_dir = "/home/ashaikh38/data_source"  # Example of an existing directory
-    backup_dir = "/home/ashaikh38/backup"      # Directory for the backup
-    archive_name = "backup"                    # Name of the archive file
-    archive_path = "/home/ashaikh38/backup/backup.tar.gz"  # Path to the archive
-    restore_dir = "/home/ashaikh38/restore"    # Directory to restore data
+    source_dir = "/home/ashaikh38/data_source"
+    backup_dir = "/home/ashaikh38/backup"    
+    archive_name = "backup"                  
+    archive_path = "/home/ashaikh38/backup/backup.tar.gz" 
+    restore_dir = "/home/ashaikh38/restore"    
 
 
     # Test backup process
