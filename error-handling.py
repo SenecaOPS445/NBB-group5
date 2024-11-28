@@ -34,17 +34,7 @@ def data_restore(archive_path, restore_dir):
 
 # Error-handling function
 def handle_error(function, *args):
-    '''
-    Executes the given function and handles any errors that occur.
-
-    Parameters:
-    - function: The function to execute.
-    - *args: Arguments to pass to the function.
-
-    Returns:
-    - The result of the function if successful.
-    - None if an error occurs.
-    '''
+    
     try:
         return function(*args)  
     except FileNotFoundError as e:
@@ -60,11 +50,7 @@ def handle_error(function, *args):
 
 def log_error(exception, message):
     '''
-    Logs the error details to a file and informs the user.
-
-    Parameters:
-    - exception: The error that occurred.
-    - message: A user-friendly description of the error.
+    Logs the error details to a file and informs the user
     '''
     log_file = "error_log.txt"
     with open(log_file, "a") as log:
