@@ -1,0 +1,12 @@
+Permission denied
+Error details: [Errno 13] Permission denied: '/path'
+------
+Permission denied
+Error details: [Errno 13] Permission denied: '/path'
+------
+File or directory not found
+Error details: [Errno 2] No such file or directory: '/home/ashaikh38/backup/backup.tar.gz'
+------
+File or directory not found
+Error details: [Errno 2] No such file or directory: '/home/ashaikh38/backup/backup.tar.gz'
+------
